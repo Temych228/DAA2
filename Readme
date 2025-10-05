@@ -1,3 +1,5 @@
+Student A
+
 Project Overview:
 This repository contains the optimized implementation of Insertion Sort designed for nearly sorted data.
 The project follows clean code practices, includes comprehensive unit tests, performance metrics collection, and a CLI for running benchmarks.
@@ -31,4 +33,52 @@ The following metrics are collected during benchmarks:
 – Number of comparisons
 – Number of swaps or shifts
 – Memory usage
+– Execution time in milliseconds
+
+Student B
+
+Project Overview
+
+This repository contains the optimized implementation of Selection Sort featuring early termination to detect already sorted arrays.
+The project follows clean code practices, includes comprehensive unit tests, detailed performance metric tracking, and a CLI tool for running benchmarks on different input sizes.
+
+How to Build:
+
+The project uses Maven for building and dependency management.
+Run the following command to compile the project:
+mvn clean compile
+
+How to Test:
+
+Unit tests are included to validate correctness and cover all major edge cases such as:
+– Empty arrays
+– Single-element arrays
+– Duplicate values
+– Already sorted and reverse-sorted arrays
+
+Run all tests with:
+mvn test
+
+How to Run Benchmarks:
+
+A CLI-based benchmark runner is provided to measure the algorithm’s performance on arrays of various sizes and patterns.
+Run the benchmark using:
+mvn exec:java -Dexec.mainClass="org.example.Main"
+
+The benchmark automatically saves the results in the file:
+docs/selectionsort_results.csv
+
+Complexity Analysis:
+
+Best Case: O(n) when the array is already sorted and early termination triggers
+Average Case: O(n²) due to repeated scans for minimum elements
+Worst Case: O(n²) for reverse-sorted or random data
+Space Complexity: O(1) since the algorithm operates in place without extra storage
+
+Performance Metrics:
+
+The following metrics are collected during benchmark runs:
+– Number of comparisons
+– Number of swaps
+– Number of array accesses
 – Execution time in milliseconds
