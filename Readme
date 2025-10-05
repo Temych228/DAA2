@@ -1,0 +1,34 @@
+Project Overview:
+This repository contains the optimized implementation of Insertion Sort designed for nearly sorted data.
+The project follows clean code practices, includes comprehensive unit tests, performance metrics collection, and a CLI for running benchmarks.
+
+How to Build:
+The project uses Maven for building and dependency management.
+Run the following command to compile the project:
+mvn clean compile
+
+How to Test:
+Unit tests are included to validate correctness and handle edge cases such as empty arrays, single elements, duplicates, and sorted or reverse-sorted inputs.
+Run all tests with:
+mvn test
+
+How to Run Benchmarks
+A CLI-based benchmark runner is provided to measure the algorithm’s performance on arrays of various sizes and patterns.
+Run the benchmark using:
+mvn exec:java -Dexec.mainClass="cli.BenchmarkRunner"
+
+The benchmark automatically saves the results in the file:
+docs/performance.csv
+
+Complexity Analysis:
+Best Case: O(n) for nearly sorted data
+Average Case: O(n²) due to shifting of elements
+Worst Case: O(n²) for reverse-sorted arrays
+Space Complexity: O(1) as the algorithm works in place
+
+Performance Metrics:
+The following metrics are collected during benchmarks:
+– Number of comparisons
+– Number of swaps or shifts
+– Memory usage
+– Execution time in milliseconds
