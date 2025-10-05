@@ -4,26 +4,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class PerformanceTracker {
-    private static long comparisons = 0;
-    private static long swaps = 0;
-    private static long arrayAccesses = 0;
+    private long comparisons = 0;
+    private long swaps = 0;
+    private long accesses = 0;
+    private double timeMs = 0;
 
-    public static void reset() {
-        comparisons = swaps = arrayAccesses = 0;
+    public void incrementComparisons() { comparisons++; }
+    public void incrementSwaps() { swaps++; }
+    public void incrementAccesses() { accesses++; }
+    public void incrementAccesses(int n) { accesses += n; }
+
+    public long getComparisons() { return comparisons; }
+    public long getSwaps() { return swaps; }
+    public long getAccesses() { return accesses; }
+    public double getTimeMs() { return timeMs; }
+
+    public void reset() {
+        comparisons = swaps = accesses = 0;
+        timeMs = 0;
     }
 
-    public static void incrementComparisons() { comparisons++; }
-    public static void incrementSwaps() { swaps++; }
-    public static void incrementArrayAccesses() { arrayAccesses++; }
-    public static void incrementArrayAccesses(int n) { arrayAccesses += n; }
+    public void setTimeMs(double timeMs) { this.timeMs = timeMs; }
 
-    public static long getComparisons() { return comparisons; }
-    public static long getSwaps() { return swaps; }
-    public static long getArrayAccesses() { return arrayAccesses; }
-
-    public static void exportToCSV(String fileName, int n, long timeNs) {
+        public void exportToCSV(String fileName, int n) {
         try (FileWriter fw = new FileWriter(fileName, true)) {
-            fw.write(n + "," + timeNs + "," + comparisons + "," + swaps + "," + arrayAccesses + "\n");
+            fw.write(n + "," + timeMs + "," + comparisons + "," + swaps + "," + accesses + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
